@@ -13,4 +13,8 @@
     <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.*-* " />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\monument.api.client\monument.api.client.csproj" />
+  </ItemGroup>
+
 </Project>
