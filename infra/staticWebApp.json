@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "instanceName": {
+      "defaultValue": "monument",
+      "type": "string"
+    },
+    "webSku": {
+      "type": "string",
+      "defaultValue": "Free",
+      "allowedValues": [ "Free", "Standard" ]
+    },
+    "storageAccountName": {
+      "type": "string"
+    },
+    "storageConnectionString": {
+      "type": "string"
+    },
+    "storageEndpoints": {
+      "type": "object"
+    }
+  },
+  "variables": {
+  
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/staticSites",
+      "apiVersion": "2023-12-01",
+      "name": "[parameters('instanceName')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "monument-webapp": "0.0.1"
+      },
+      "properties": {
+
+      },
+      "sku": {
+        "name": "Free",
+        "tier": "Free"
+      },
+      "resources": [
+        {
+          "apiVersion": "2022-09-01",
+          "name": "appsettings",
+          "type": "config",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            
+          },
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/staticSites', parameters('instanceName'))]"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.Web/staticSites/basicAuth",
+      "apiVersion": "2023-12-01",
+      "name": "[concat(parameters('instanceName'), '/default')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/staticSites', parameters('instanceName'))]"
+      ],
+      "properties": {
+        "applicableEnvironmentsMode": "SpecifiedEnvironments"
+      }
+    }
+  ],
+  "outputs": {
+    "webAppHostName": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Web/staticSites', parameters('instanceName'))).defaultHostname]"
+    }
+  }
+}
