@@ -6,11 +6,11 @@ using System.Text.Json;
 
 namespace monument.api
 {
-    public class FunctionBase
+    public class ApiBase
     {
         protected JsonSerializerOptions SerializerOptions { get; set; }
 
-        public FunctionBase()
+        public ApiBase()
         {
             SerializerOptions = new JsonSerializerOptions()
             {

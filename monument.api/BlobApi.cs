@@ -1,35 +1,28 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using monument.api.client.Models;
 using monument.api.App.Services;
+using monument.api.client.Models;
 using System.Net;
 
 namespace monument.api
 {
-    public class ApiSettings
-    {
-        public string StorageConnectionString { get; set; }
-        public string StorageUrl { get; set; }
-    }
-    public class BlobFunctions: FunctionBase
+    public class BlobApi: ApiBase
     {
         private BlobService _blobService;
-        private readonly ILogger<BlobFunctions> _logger;
+        private readonly ILogger<BlobApi> _logger;
 
-        public BlobFunctions(BlobService blobService, ILogger<BlobFunctions> logger)
+        public BlobApi(BlobService blobService, ILogger<BlobApi> logger)
         {
             _blobService = blobService;
             _logger = logger;
         }
 
         [Function(nameof(GetBlobUploadUriAsync))]
-        [OpenApiOperation(operationId: nameof(GetBlobUploadUriAsync), tags: new[] { nameof(BlobFunctions) })]
+        [OpenApiOperation(operationId: nameof(GetBlobUploadUriAsync), tags: new[] { nameof(BlobApi) })]
         //[OpenApiSecurity("bearer", SecuritySchemeType.Http, Name = "swa-claim", BearerFormat = "jwt", In = OpenApiSecurityLocationType.Header, Scheme = OpenApiSecuritySchemeType.Bearer)]
         [OpenApiParameter(name: "containerId", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "The **container** parameter")]
         [OpenApiParameter(name: "blobId", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "The ** blobId** parameter")]
