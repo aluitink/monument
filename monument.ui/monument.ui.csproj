@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Markdig.Signed" Version="0.37.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.6" PrivateAssets="all" />
     <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.*-* " />
@@ -16,6 +17,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\monument.api.client\monument.api.client.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\MarkdownSection.js" />
   </ItemGroup>
 
 </Project>

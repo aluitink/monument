@@ -1,4 +1,5 @@
 ﻿@page "/page/{pageName}"
+@using monument.ui.Components
 
 <PageTitle>@PageName</PageTitle>
 
@@ -12,16 +13,17 @@
 }
 else
 {
-  
-
+    <MarkdownSection Content="@_page.Markdown" />
 }
 
 @code {
-    [Inject]
-    protected MonumentApiClient MonumentClient { get; set; }
+
 
     [Parameter]
     public string PageName { get; set; }
+
+    [Inject]
+    protected MonumentApiClient MonumentClient { get; set; }
 
     private monument.api.client.Models.Page _page { get; set; }
 
