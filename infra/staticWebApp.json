@@ -47,7 +47,7 @@
           "type": "config",
           "location": "[resourceGroup().location]",
           "properties": {
-            
+            "ApiSettings__StorageConnectionString": "[parameters('storageConnectionString')]"
           },
           "dependsOn": [
             "[resourceId('Microsoft.Web/staticSites', parameters('instanceName'))]"
