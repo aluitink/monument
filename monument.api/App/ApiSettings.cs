@@ -1,4 +1,4 @@
-﻿namespace monument.api
+﻿namespace monument.api.App
 {
     public class ApiSettings
     {
