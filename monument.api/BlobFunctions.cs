@@ -36,7 +36,7 @@ namespace monument.api
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(BlobGrant), Description = "The OK response")]
         [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Unauthorized, Description = "The Unauthorized response")]
         public async Task<IActionResult> GetBlobUploadUriAsync(
-            [HttpTrigger(AuthorizationLevel.Admin, "get", Route = "blobs/{containerId}/{blobId}/new")] HttpRequest req, string containerId, string blobId)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "blobs/{containerId}/{blobId}/new")] HttpRequest req, string containerId, string blobId)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
             var uri = await _blobService.GetBlobUploadUriAsync(containerId, blobId, req.HttpContext.RequestAborted);
