@@ -5,6 +5,7 @@ using Azure.Storage.Blobs.Specialized;
 using Azure.Storage.Sas;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Runtime.CompilerServices;
 
 namespace monument.api.App.Services
 {
@@ -17,7 +18,17 @@ namespace monument.api.App.Services
             _apiSettings = apiSettings.Value;
             _logger = logger;
         }
-
+        public async IAsyncEnumerable<string> FetchBlobListAsync(string containerId, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+        {
+            _logger.LogTrace($"FetchBlobListAsync(containerId: {containerId})");
+            var containerClient = await GetBlobContainerClientAsync(containerId);
+            var blobs = containerClient.GetBlobsAsync(BlobTraits.None, BlobStates.None, cancellationToken: cancellationToken);
+            await foreach (var item in blobs)
+            {
+                yield return item.Name;
+            }
+            _logger.LogTrace($"FetchBlobListAsync - containerClient(name: {containerClient.Name})");
+        }
         public async Task<string> FetchBlobAsync(string containerId, string blobId, Stream destinationStream, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace($"FetchBlobAsync(containerId: {containerId}, blobId: {blobId})");
@@ -87,7 +98,7 @@ namespace monument.api.App.Services
                 throw new Exception("No Primary Url has been set");
             return new Uri(new Uri(_apiSettings.StorageUrl), $"{container}/{blobId}");
         }
-        protected async Task<BlobClient> GetBlobClientAsync(string containerId, string blobId, CancellationToken cancellationToken = default)
+        protected async Task<BlobContainerClient> GetBlobContainerClientAsync(string containerId, CancellationToken cancellationToken = default)
         {
             var storage = new BlobServiceClient(_apiSettings.StorageConnectionString);
             var client = storage.GetBlobContainerClient(containerId);
@@ -96,7 +107,11 @@ namespace monument.api.App.Services
 
             if (!existsResponse.Value)
                 await client.CreateIfNotExistsAsync(PublicAccessType.Blob, cancellationToken: cancellationToken);
-
+            return client;
+        }
+        protected async Task<BlobClient> GetBlobClientAsync(string containerId, string blobId, CancellationToken cancellationToken = default)
+        {
+            _ = await GetBlobContainerClientAsync(containerId, cancellationToken);
             var blobClient = new BlobClient(_apiSettings.StorageConnectionString, containerId, blobId);
             return blobClient;
         }
