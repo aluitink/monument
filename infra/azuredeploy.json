@@ -72,12 +72,6 @@
           "instanceName": {
             "value": "[parameters('instanceName')]"
           },
-          "deployApiUrl": {
-            "value": "[parameters('deployApiUrl')]"
-          },
-          "deployApiKey": {
-            "value": "[parameters('deployApiKey')]"
-          },
           "webSku": {
             "value": "[parameters('webSku')]"
           },
