@@ -24,7 +24,7 @@
     "/blobs/{containerId}/{blobId}/new": {
       "get": {
         "tags": [
-          "BlobFunctions"
+          "BlobApi"
         ],
         "operationId": "GetBlobUploadUriAsync",
         "produces": [
@@ -56,12 +56,101 @@
           "401": {
             "description": "The Unauthorized response"
           }
-        },
-        "security": [
-          {
-            "bearer": []
+        }
+      }
+    },
+    "/pages": {
+      "get": {
+        "tags": [
+          "PageApi"
+        ],
+        "operationId": "GetPagesAsync",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The OK response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/page"
+              }
+            }
+          },
+          "404": {
+            "description": "The NotFound response"
           }
-        ]
+        }
+      },
+      "post": {
+        "tags": [
+          "PageApi"
+        ],
+        "operationId": "SetPageAsync",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/page"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The OK response",
+            "schema": {
+              "$ref": "#/definitions/page"
+            }
+          },
+          "400": {
+            "description": "The BadRequest response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/pages/{pageName}": {
+      "get": {
+        "tags": [
+          "PageApi"
+        ],
+        "operationId": "GetPageAsync",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The OK response",
+            "schema": {
+              "$ref": "#/definitions/page"
+            }
+          },
+          "404": {
+            "description": "The NotFound response"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PageApi"
+        ],
+        "operationId": "DeletePageAsync",
+        "responses": {
+          "200": {
+            "description": "The OK response"
+          }
+        }
       }
     }
   },
@@ -73,6 +162,14 @@
           "type": "string"
         },
         "uploadUri": {
+          "type": "string"
+        }
+      }
+    },
+    "page": {
+      "type": "object",
+      "properties": {
+        "name": {
           "type": "string"
         }
       }
