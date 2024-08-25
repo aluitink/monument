@@ -1,0 +1,12 @@
+{
+  "clientPrincipal": {
+    "identityProvider": "aad",
+    "userId": "205cb67e9e1045dfcfcda44de8bbf7f6",
+    "userDetails": "DevUser1",
+    "userRoles": [
+      "admin",
+      "anonymous",
+      "authenticated"
+    ]
+  }
+}

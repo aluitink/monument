@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.FluentUI.AspNetCore.Components;
 using monument.api.client;
 using monument.ui;
+using monument.ui.Client;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -15,6 +17,11 @@ builder.Services.AddOptions<MonumentSettings>()
     {
         configuration.GetSection("Monument").Bind(settings);
     });
+
+
+builder.Services
+    .AddAuthorizationCore()
+    .AddScoped<AuthenticationStateProvider, MonumentAuthenticationStateProvider>();
 
 // HttpClient for MonumentApiClient
 builder.Services.AddHttpClient("api", (sp, client) =>

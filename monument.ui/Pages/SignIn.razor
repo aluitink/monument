@@ -1,0 +1,20 @@
+﻿@page "/signin"
+
+<PageTitle>Sign In</PageTitle>
+
+<h1>Sign In</h1>
+
+<div style="display:flex; height:100%; align-items: center; justify-content: center;">
+    <FluentCard Width="550px" Height="300px">
+        <FluentStack Orientation="Orientation.Vertical"
+                     VerticalAlignment="VerticalAlignment.Center"
+                     VerticalGap="15"
+                     HorizontalAlignment="HorizontalAlignment.Center">
+            <FluentLabel Typo="Typography.HeroTitle">Sign in</FluentLabel>
+            <FluentLabel Typo="Typography.Subject">Use your Microsoft or GitHub account</FluentLabel>
+            <br />
+            <FluentAnchor IconStart="@(new Icons.Regular.Size20.Cloud())" Appearance="Appearance.Outline" Href="/.auth/login/aad">Sign in with Microsoft</FluentAnchor>
+            <FluentAnchor IconStart="@(new Icons.Regular.Size20.Code())" Appearance="Appearance.Outline" Href="/.auth/login/github">Sign in with GitHub</FluentAnchor>
+        </FluentStack>
+    </FluentCard>
+</div>

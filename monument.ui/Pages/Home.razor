@@ -2,6 +2,13 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new Fluent Blazor app.
+<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+    <Authorized>
+        <h1>Hello, admin!</h1>
+        Welcome to your new Fluent Blazor app.
+    </Authorized>
+    <NotAuthorized>
+        <h1>Hello, world!</h1>
+        Welcome to your new Fluent Blazor app.
+    </NotAuthorized>
+</Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
