@@ -1,6 +1,8 @@
 # monument
 
-Grief and the grieving process is difficult and personal to each person experiencing it. When I had to say goodbye to my dog, I spent a lot of time remembering her. Although it is good to process and embrace these feelings, I needed a break from the thoughts and wanted something to focus that energy on.
+Grief and the grieving process is difficult and personal to anyone experiencing it. When I had to say goodbye to my dog, I spent a lot of time remembering her and looking through pictures. 
+
+Although it is good to process and embrace these feelings, I needed a break from the thoughts and wanted something to focus that energy on.
 
 Monument is an Azure Static Web App backed by a storage account.
 
