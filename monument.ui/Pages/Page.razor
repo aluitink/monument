@@ -1,0 +1,33 @@
+﻿@page "/page/{pageName}"
+
+<PageTitle>@PageName</PageTitle>
+
+<h1>@PageName</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (_page == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+  
+
+}
+
+@code {
+    [Inject]
+    protected MonumentApiClient MonumentClient { get; set; }
+
+    [Parameter]
+    public string PageName { get; set; }
+
+    private monument.api.client.Models.Page _page { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _page = await MonumentClient.GetPageAsync(PageName);
+    }
+
+}
