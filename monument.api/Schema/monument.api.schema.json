@@ -196,6 +196,9 @@
       "properties": {
         "name": {
           "type": "string"
+        },
+        "markdown": {
+          "type": "string"
         }
       }
     }
