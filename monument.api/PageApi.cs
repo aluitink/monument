@@ -18,7 +18,7 @@ namespace monument.api
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "pages")] HttpRequest req)
         {
             //find all json blobs from storage
-            return new OkObjectResult(new List<Page>());
+            return new OkObjectResult(new List<Page>() { new Page() { Name = "Sample"} });
 
         }
         [Function(nameof(GetPageAsync))]
@@ -31,7 +31,7 @@ namespace monument.api
         {
             //Find json blob from storage
 
-            return new OkObjectResult(new Page() { Name = pageName });
+            return new OkObjectResult(new Page() { Name = pageName, Markdown = "text in *italics* and **bold**" });
         }
 
         [Function(nameof(SetPageAsync))]
