@@ -15,15 +15,20 @@
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "ghcr.io/devcontainers/features/dotnet:2": {
             "version": "none",
-            "dotnetRuntimeVersions": "7.0",
-            "aspNetCoreRuntimeVersions": "7.0"
-        }
+            "dotnetRuntimeVersions": "8.0",
+            "aspNetCoreRuntimeVersions": "8.0",
+            "workloads": "wasm-tools"
+        },
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1": {}
     },
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-vscode.vscode-node-azure-pack",
                 "GitHub.vscode-github-actions",
+                "ms-azuretools.vscode-azurefunctions",
+                "ms-azuretools.vscode-azurestaticwebapps",
                 "ms-dotnettools.vscode-dotnet-runtime",
                 "ms-dotnettools.csdevkit",
                 "ms-dotnetools.csharp"
@@ -33,7 +38,7 @@
     "forwardPorts": [
         44380
     ],
-    "postCreateCommand": "dotnet restore",
+    "postCreateCommand": "npm install -g @azure/static-web-apps-cli && dotnet restore",
     "remoteEnv": {
         "DOTNET_MULTILEVEL_LOOKUP": "0",
         "TARGET": "net8.0"
