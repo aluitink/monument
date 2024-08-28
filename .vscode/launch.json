@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "SWA: Run monument (swa-cli.config.json)",
+      "request": "launch",
+      "type": "chrome",
+      "url": "http://localhost:4280",
+      "preLaunchTask": "swa: start monument",
+      "webRoot": "${workspaceFolder}/monument.ui",
+      "timeout": 30000
+    },
+    {
+      "name": "Attach to .NET Functions",
+      "type": "coreclr",
+      "request": "attach",
+      "processId": "${command:azureFunctions.pickProcess}"
+    }
+  ]
+}
