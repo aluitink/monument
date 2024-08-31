@@ -182,8 +182,8 @@ The *monument.api.csproj* project file contains:
 
 - 5 namespaces.
 - 8 named types.
-- 483 total lines of source code.
-- Approximately 208 lines of executable code.
+- 487 total lines of source code.
+- Approximately 209 lines of executable code.
 - The highest cyclomatic complexity is 6 :heavy_check_mark:.
 
 <details>
@@ -235,8 +235,8 @@ The `<global namespace>` namespace contains 1 named types.
 The `monument.api` namespace contains 3 named types.
 
 - 3 named types.
-- 180 total lines of source code.
-- Approximately 74 lines of executable code.
+- 184 total lines of source code.
+- Approximately 75 lines of executable code.
 - The highest cyclomatic complexity is 3 :heavy_check_mark:.
 
 <details>
@@ -303,18 +303,18 @@ The `monument.api` namespace contains 3 named types.
 <br>
 
 - The `PageApi` contains 6 members.
-- 81 total lines of source code.
-- Approximately 44 lines of executable code.
+- 85 total lines of source code.
+- Approximately 45 lines of executable code.
 - The highest cyclomatic complexity is 3 :heavy_check_mark:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | Field | <a href='https://github.com/aluitink/monument/blob/main/monument.api/Apis/PageApi.cs#L15' title='BlobService PageApi._blobService'>15</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
 | Method | <a href='https://github.com/aluitink/monument/blob/main/monument.api/Apis/PageApi.cs#L17' title='PageApi.PageApi(BlobService blobService)'>17</a> | 96 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
-| Method | <a href='https://github.com/aluitink/monument/blob/main/monument.api/Apis/PageApi.cs#L82' title='Task<IActionResult> PageApi.DeletePageAsync(HttpRequest req, string pageName)'>82</a> | 63 | 3 :heavy_check_mark: | 0 | 15 | 16 / 10 |
-| Method | <a href='https://github.com/aluitink/monument/blob/main/monument.api/Apis/PageApi.cs#L40' title='Task<IActionResult> PageApi.GetPageAsync(HttpRequest req, string pageName)'>40</a> | 64 | 1 :heavy_check_mark: | 0 | 15 | 15 / 9 |
+| Method | <a href='https://github.com/aluitink/monument/blob/main/monument.api/Apis/PageApi.cs#L86' title='Task<IActionResult> PageApi.DeletePageAsync(HttpRequest req, string pageName)'>86</a> | 63 | 3 :heavy_check_mark: | 0 | 15 | 16 / 10 |
+| Method | <a href='https://github.com/aluitink/monument/blob/main/monument.api/Apis/PageApi.cs#L40' title='Task<IActionResult> PageApi.GetPageAsync(HttpRequest req, string pageName)'>40</a> | 62 | 1 :heavy_check_mark: | 0 | 15 | 16 / 10 |
 | Method | <a href='https://github.com/aluitink/monument/blob/main/monument.api/Apis/PageApi.cs#L26' title='Task<IActionResult> PageApi.GetPagesAsync(HttpRequest req)'>26</a> | 66 | 2 :heavy_check_mark: | 0 | 16 | 13 / 8 |
-| Method | <a href='https://github.com/aluitink/monument/blob/main/monument.api/Apis/PageApi.cs#L58' title='Task<IActionResult> PageApi.SetPageAsync(HttpRequest req)'>58</a> | 56 | 3 :heavy_check_mark: | 0 | 22 | 25 / 16 |
+| Method | <a href='https://github.com/aluitink/monument/blob/main/monument.api/Apis/PageApi.cs#L59' title='Task<IActionResult> PageApi.SetPageAsync(HttpRequest req)'>59</a> | 56 | 3 :heavy_check_mark: | 0 | 22 | 28 / 16 |
 
 <a href="#PageApi-class-diagram">:link: to `PageApi` class diagram</a>
 
