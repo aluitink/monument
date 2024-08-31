@@ -1,4 +1,5 @@
 # monument
+[![CodeQL](https://github.com/aluitink/monument/actions/workflows/codeql.yml/badge.svg)](https://github.com/aluitink/monument/actions/workflows/codeql.yml)
 
 Grief and the grieving process is difficult and personal to anyone experiencing it. When I had to say goodbye to my dog, I spent a lot of time remembering her and looking through pictures. 
 
