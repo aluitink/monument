@@ -6,7 +6,7 @@ Although it is good to process and embrace these feelings, I needed a break from
 
 Monument is an Azure Static Web App backed by a storage account.
 
-I idea is to allow creation of pages and content via Markdown.
+The idea is to allow creation of pages and content via Markdown.
 
 The Blazor WASM UI will interact with an Azure Functions API to access and modify files stored as JSON. The JSON documents will act as the content, describing what will be seen.
 
