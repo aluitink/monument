@@ -1,9 +1,12 @@
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using monument.api.App;
+using monument.api.App.Services;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
@@ -41,6 +44,12 @@ var host = new HostBuilder()
             };
             return options;
         });
+        services.AddTransient<BlobService>();
+         services.AddOptions<ApiSettings>()
+            .Configure<IConfiguration>((settings, configuration) =>
+            {
+                configuration.GetSection("ApiSettings").Bind(settings);
+            });
     })
     .Build();
 

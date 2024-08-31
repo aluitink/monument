@@ -21,7 +21,7 @@ namespace monument.api
             };
         }
 
-        protected async Task<string> EnsureAuthentication(HttpRequest request, CancellationToken cancellationToken = default)
+        protected async Task<string> EnsureAuthenticationAsync(HttpRequest request, CancellationToken cancellationToken = default)
         {
             var userId = await GetUserIdFromRequestAsync(request, cancellationToken);
             if (userId == null)

@@ -15,7 +15,7 @@
     },
     "version": "1.0.0"
   },
-  "host": "localhost:7011",
+  "host": "127.0.0.1:7071",
   "basePath": "/api",
   "schemes": [
     "http"
@@ -123,6 +123,9 @@
             "schema": {
               "type": "string"
             }
+          },
+          "401": {
+            "description": "The Unauthorized response"
           }
         }
       }
@@ -174,6 +177,9 @@
         "responses": {
           "200": {
             "description": "The OK response"
+          },
+          "400": {
+            "description": "The BadRequest response"
           }
         }
       }
