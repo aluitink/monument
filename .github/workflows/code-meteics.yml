@@ -4,7 +4,6 @@ on:
   push:
     branches: [main]
     paths:
-      - "!./.github/workflows/**"
       - "!./README.md"
       - "!./CODE_METRICS.md" # ignore this file
       - "!docs/**"
