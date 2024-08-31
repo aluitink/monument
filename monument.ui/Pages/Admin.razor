@@ -1,27 +1,66 @@
 ﻿@page "/admin"
+@using monument.ui.Components
 <PageTitle>Admin</PageTitle>
 
-<h1>Admin</h1>
-
-
-@if (true)
+@if (_pageCollection == null)
 {
-    <p><em>Loading...</em></p>
+        <FluentLabel>Loading...</FluentLabel>
 }
 else
 {
-   
+    <FluentLabel>Pages</FluentLabel>
+    <FluentListbox ValueChanged="@(e => listboxValue = e)" Height="300px" TOption="string" Width="15rem">
+        @foreach(var p in _pageCollection)
+        {
+            <FluentOption Value="@p.Name">@p.Name</FluentOption>
+        }
+    </FluentListbox>
+
+    <p>
+        Selected value: @listboxValue
+    </p>
+
+    <FluentButton OnClick="@EditAsync">Add Page</FluentButton>
+    <FluentButton OnClick="@EditAsync">Edit Page</FluentButton>
+    <FluentButton>Remove Page</FluentButton>
 }
 
 @code {
     [Inject]
     protected MonumentApiClient MonumentClient { get; set; }
+    [Inject]
+    protected IDialogService DialogService { get; set; }
 
+    string? listboxValue;
 
+    private ICollection<monument.api.client.Models.Page>? _pageCollection;
     protected override async Task OnInitializedAsync()
     {
-        
-
+        _pageCollection = await MonumentClient.GetPagesAsync();
     }
 
+
+    private async Task EditAsync()
+    {
+        // Create a new instance of DialogData
+        // to allow the user to cancel the update
+        var data = _pageCollection.FirstOrDefault(p => p.Name.Equals(listboxValue, StringComparison.OrdinalIgnoreCase)) ?? 
+                    new monument.api.client.Models.Page();
+
+        var dialog = await DialogService.ShowDialogAsync<EditPageDialog>(data, new DialogParameters()
+            {
+                Height = "400px",
+                Title = $"Updating the {data.Name} sheet",
+                PreventDismissOnOverlayClick = true,
+                PreventScroll = true,
+            });
+
+        var result = await dialog.Result;
+        if (!result.Cancelled && result.Data != null)
+        {
+            var editedPage = (monument.api.client.Models.Page)result.Data;
+            editedPage = await MonumentClient.SetPageAsync(editedPage.Name, editedPage);            
+            _pageCollection.Add(editedPage);
+        }
+    }
 }
