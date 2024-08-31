@@ -1,9 +1,4 @@
 # monument
-[![Azure Static Web Apps CI/CD](https://github.com/aluitink/monument/actions/workflows/azure-static-web-apps-wonderful-sea-01070661e.yml/badge.svg)](https://github.com/aluitink/monument/actions/workflows/azure-static-web-apps-wonderful-sea-01070661e.yml)
-
-[![.NET code metrics](https://github.com/aluitink/monument/actions/workflows/code-meteics.yml/badge.svg)](https://github.com/aluitink/monument/actions/workflows/code-meteics.yml)
-
-[![CodeQL](https://github.com/aluitink/monument/actions/workflows/codeql.yml/badge.svg)](https://github.com/aluitink/monument/actions/workflows/codeql.yml)
 
 Grief and the grieving process is difficult and personal to anyone experiencing it. When I had to say goodbye to my dog, I spent a lot of time remembering her and looking through pictures. 
 
@@ -27,3 +22,7 @@ I have no monetary goals with this, my only wish is for anyone wanting a way to 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Faluitink%2Fmonument%2Fmain%2Finfra%2Fazuredeploy.json)
 
 Today I added a codespace config - you should be able to spin a codespace and access via SWA Emulator
+
+[![Azure Static Web Apps CI/CD](https://github.com/aluitink/monument/actions/workflows/azure-static-web-apps-wonderful-sea-01070661e.yml/badge.svg)](https://github.com/aluitink/monument/actions/workflows/azure-static-web-apps-wonderful-sea-01070661e.yml)
+[![.NET code metrics](https://github.com/aluitink/monument/actions/workflows/code-meteics.yml/badge.svg)](https://github.com/aluitink/monument/actions/workflows/code-meteics.yml)
+[![CodeQL](https://github.com/aluitink/monument/actions/workflows/codeql.yml/badge.svg)](https://github.com/aluitink/monument/actions/workflows/codeql.yml)
