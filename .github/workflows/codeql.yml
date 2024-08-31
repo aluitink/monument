@@ -14,6 +14,11 @@ name: "CodeQL"
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - "!./.github/workflows/**"
+      - "!./README.md"
+      - "!./CODE_METRICS.md" # ignore this file
+      - "!docs/**"
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
