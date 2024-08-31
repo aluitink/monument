@@ -7,7 +7,7 @@
                 <FluentNavMenu Id="main-menu" Width="250" Collapsible="true" Title="Navigation menu" @bind-Expanded="expanded" CustomToggle="true">
                     <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Icons.Regular.Size20.Home())" IconColor="Color.Accent">Home</FluentNavLink>
                     <FluentNavLink Href="admin" Icon="@(new Icons.Regular.Size20.NumberSymbolSquare())" IconColor="Color.Accent">Admin</FluentNavLink>
-                    <FluentNavLink Href="/.auth/signout" Icon="@(new Icons.Regular.Size20.NumberSymbolSquare())" IconColor="Color.Accent">Signout</FluentNavLink>
+                    <FluentNavLink Href="/.auth/logout?post_logout_redirect_uri=/" Icon="@(new Icons.Regular.Size20.NumberSymbolSquare())" IconColor="Color.Accent">Signout</FluentNavLink>
                 </FluentNavMenu>
             </Authorized>
             <NotAuthorized>
